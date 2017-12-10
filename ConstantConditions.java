@@ -8,7 +8,7 @@ import org.tribot.api2007.Banking;
  */
 public class ConstantConditions
 {
-    private static final Condition BankIsOpen  = new Condition()
+    public static final Condition BANK_IS_OPEN  = new Condition()
     {
         @Override
         public boolean active()
@@ -16,7 +16,7 @@ public class ConstantConditions
             return Banking.isBankScreenOpen();
         }
     };
-    private static final Condition BankIsClosed  = new Condition()
+    public static final Condition BANK_IS_CLOSED  = new Condition()
     {
         @Override
         public boolean active()
@@ -24,6 +24,13 @@ public class ConstantConditions
             return !Banking.isBankScreenOpen();
         }
     };
-
+    public static final Condition IN_BANK = new Condition()
+    {
+        @Override
+        public boolean active()
+        {
+            return Banking.isInBank();
+        }
+    };
 
 }
